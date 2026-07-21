@@ -1,0 +1,128 @@
+.layout {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  width: 100%;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb a {
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+.separator {
+  color: var(--color-border);
+}
+
+.current {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  max-width: 560px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.relatedSection {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+.relatedTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.relatedCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-normal) var(--easing);
+}
+
+.relatedCard:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-raised);
+}
+
+.relatedIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-xs);
+  background: var(--color-secondary);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.relatedName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.relatedDesc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .layout {
+    padding: 24px 16px 48px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}

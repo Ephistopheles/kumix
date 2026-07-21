@@ -1,0 +1,145 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  max-width: 480px;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px 0 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background: var(--color-surface);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--duration-normal) var(--easing);
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 16px;
+  background: var(--color-secondary);
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.summary strong {
+  color: var(--color-text-primary);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-xs);
+  font-size: 13px;
+}
+
+.success {
+  background: #f0fdf4;
+}
+
+.failed {
+  background: #fef2f2;
+}
+
+.resultIcon {
+  flex-shrink: 0;
+}
+
+.success .resultIcon {
+  color: var(--color-success);
+}
+
+.failed .resultIcon {
+  color: var(--color-error);
+}
+
+.resultInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resultUrl {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultMeta {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.resultTime {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}

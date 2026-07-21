@@ -1,0 +1,212 @@
+import {
+  Braces,
+  CodeXml,
+  FileStack,
+  Scissors,
+  Image,
+  ImageIcon,
+  Sheet,
+  FileSpreadsheet,
+  Calculator,
+  Calendar,
+  TextCursorInput,
+  LetterText,
+  Palette,
+  Globe,
+  ShieldCheck,
+  ShieldAlert,
+} from "lucide-react";
+import type { Tool, ToolCategory } from "@/shared/types";
+
+export const CATEGORIES: Record<ToolCategory, string> = {
+  development: "Development",
+  documents: "Documents",
+  images: "Images",
+  excel: "Excel",
+  calculators: "Calculators",
+  text: "Text",
+  web: "Web",
+  security: "Security",
+};
+
+export const TOOLS: readonly Tool[] = [
+  {
+    slug: "json-formatter",
+    name: "JSON Formatter",
+    description: "Format, validate and minify JSON",
+    category: "development",
+    categoryLabel: "Development",
+    icon: Braces,
+    keywords: ["json", "format", "beautify", "minify", "validate", "parse"],
+  },
+  {
+    slug: "xml-formatter",
+    name: "XML Formatter",
+    description: "Format, validate and minify XML",
+    category: "development",
+    categoryLabel: "Development",
+    icon: CodeXml,
+    badge: "new",
+    keywords: ["xml", "format", "beautify", "minify", "validate", "parse"],
+  },
+  {
+    slug: "merge-pdf",
+    name: "Merge PDF",
+    description: "Merge multiple PDF files into one",
+    category: "documents",
+    categoryLabel: "Documents",
+    icon: FileStack,
+    keywords: ["pdf", "merge", "combine", "join", "document"],
+  },
+  {
+    slug: "split-pdf",
+    name: "Split PDF",
+    description: "Split a PDF into multiple files by pages",
+    category: "documents",
+    categoryLabel: "Documents",
+    icon: Scissors,
+    badge: "new",
+    keywords: ["pdf", "split", "extract", "pages", "document"],
+  },
+  {
+    slug: "png-converter",
+    name: "PNG Converter",
+    description: "Convert images to PNG format",
+    category: "images",
+    categoryLabel: "Images",
+    icon: Image,
+    keywords: ["png", "convert", "image", "jpg", "jpeg", "webp", "avif"],
+  },
+  {
+    slug: "jpg-converter",
+    name: "JPG Converter",
+    description: "Convert images to JPG with quality control",
+    category: "images",
+    categoryLabel: "Images",
+    icon: ImageIcon,
+    badge: "new",
+    keywords: ["jpg", "jpeg", "convert", "image", "png", "webp", "quality"],
+  },
+  {
+    slug: "excel-to-csv",
+    name: "Excel to CSV",
+    description: "Convert Excel spreadsheets to CSV",
+    category: "excel",
+    categoryLabel: "Excel",
+    icon: Sheet,
+    keywords: ["excel", "csv", "xlsx", "xls", "spreadsheet", "convert"],
+  },
+  {
+    slug: "csv-to-excel",
+    name: "CSV to Excel",
+    description: "Convert CSV files to Excel spreadsheets",
+    category: "excel",
+    categoryLabel: "Excel",
+    icon: FileSpreadsheet,
+    badge: "new",
+    keywords: ["csv", "excel", "xlsx", "spreadsheet", "convert"],
+  },
+  {
+    slug: "vat-calculator",
+    name: "VAT Calculator",
+    description: "Calculate VAT quickly and accurately",
+    category: "calculators",
+    categoryLabel: "Calculators",
+    icon: Calculator,
+    keywords: ["vat", "tax", "calculator", "percentage", "iva"],
+  },
+  {
+    slug: "age-calculator",
+    name: "Age Calculator",
+    description: "Calculate exact age in years, months and days",
+    category: "calculators",
+    categoryLabel: "Calculators",
+    icon: Calendar,
+    badge: "new",
+    keywords: ["age", "calculator", "birthday", "date", "years", "months"],
+  },
+  {
+    slug: "remove-duplicate-lines",
+    name: "Remove Duplicate Lines",
+    description: "Remove duplicated lines from text",
+    category: "text",
+    categoryLabel: "Text",
+    icon: TextCursorInput,
+    keywords: ["duplicate", "lines", "remove", "text", "unique", "deduplicate"],
+  },
+  {
+    slug: "word-counter",
+    name: "Word Counter",
+    description: "Count words, characters and reading time",
+    category: "text",
+    categoryLabel: "Text",
+    icon: LetterText,
+    badge: "new",
+    keywords: ["word", "count", "characters", "text", "reading", "time"],
+  },
+  {
+    slug: "color-picker",
+    name: "Color Picker",
+    description: "Pick, convert and explore colors",
+    category: "web",
+    categoryLabel: "Web",
+    icon: Palette,
+    keywords: ["color", "picker", "hex", "rgb", "hsl", "palette", "colour"],
+  },
+  {
+    slug: "ping",
+    name: "Ping",
+    description: "Check website reachability and response time",
+    category: "web",
+    categoryLabel: "Web",
+    icon: Globe,
+    badge: "new",
+    keywords: [
+      "ping",
+      "website",
+      "url",
+      "response",
+      "time",
+      "check",
+      "latency",
+    ],
+  },
+  {
+    slug: "password-generator",
+    name: "Password Generator",
+    description: "Generate strong, secure passwords",
+    category: "security",
+    categoryLabel: "Security",
+    icon: ShieldCheck,
+    keywords: ["password", "generator", "secure", "random", "strong"],
+  },
+  {
+    slug: "password-strength",
+    name: "Password Strength",
+    description: "Check how strong your password is",
+    category: "security",
+    categoryLabel: "Security",
+    icon: ShieldAlert,
+    badge: "new",
+    keywords: ["password", "strength", "check", "security", "entropy", "crack"],
+  },
+] as const;
+
+export function getToolBySlug(slug: string): Tool | undefined {
+  return TOOLS.find((t) => t.slug === slug);
+}
+
+export function getRelatedTools(
+  currentSlug: string,
+  limit = 3,
+): readonly Tool[] {
+  const current = getToolBySlug(currentSlug);
+  if (!current) return [];
+  const sameCategory = TOOLS.filter(
+    (t) => t.category === current.category && t.slug !== currentSlug,
+  );
+  const others = TOOLS.filter(
+    (t) => t.category !== current.category && t.slug !== currentSlug,
+  );
+  return [...sameCategory, ...others].slice(0, limit);
+}

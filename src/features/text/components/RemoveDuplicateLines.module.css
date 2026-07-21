@@ -1,0 +1,83 @@
+.workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.editorWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  min-height: 360px;
+}
+
+.editorPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editorLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.lineCount {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.textarea {
+  flex: 1;
+  min-height: 320px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-family: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--duration-normal) var(--easing);
+}
+
+.textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.textarea::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stats {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  .editorWrapper {
+    grid-template-columns: 1fr;
+  }
+}
