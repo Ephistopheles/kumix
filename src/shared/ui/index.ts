@@ -9,3 +9,5 @@ export { CopyButton } from "./CopyButton";
 export { Toggle } from "./Toggle";
 export { Slider } from "./Slider";
 export { Providers } from "./Providers";
+export { Footer } from "./Footer";
+export { GlobalReportBugButton } from "./GlobalReportBugButton";

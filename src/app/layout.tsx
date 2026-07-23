@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import { Header, Providers } from "@/shared/ui";
+import { Header, Footer, Providers } from "@/shared/ui";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -50,6 +50,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main style={{ flex: 1 }}>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

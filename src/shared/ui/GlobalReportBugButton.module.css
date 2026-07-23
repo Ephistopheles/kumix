@@ -1,0 +1,51 @@
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 130;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent);
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--color-primary) 66%, white 34%),
+    color-mix(in srgb, var(--color-accent) 72%, white 28%)
+  );
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-floating);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  transition:
+    transform var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing),
+    filter var(--duration-fast) var(--easing);
+}
+
+.fab:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.06);
+  box-shadow: var(--shadow-overlay);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .fab {
+    right: 12px;
+    bottom: 12px;
+    width: 42px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .fab span {
+    display: none;
+  }
+}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Sparkles } from "lucide-react";
+import { Search } from "lucide-react";
 import styles from "./Header.module.css";
 
 export function Header() {
@@ -21,6 +21,7 @@ export function Header() {
             alt="Kumix Logo"
             width={24}
             height={24}
+            priority
           />
         </span>
         Kumix

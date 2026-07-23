@@ -1,6 +1,7 @@
 import {
   Braces,
   CodeXml,
+  BookText,
   FileStack,
   Scissors,
   Image,
@@ -48,6 +49,16 @@ export const TOOLS: readonly Tool[] = [
     icon: CodeXml,
     badge: "new",
     keywords: ["xml", "format", "beautify", "minify", "validate", "parse"],
+  },
+  {
+    slug: "yaml-formatter",
+    name: "YAML Formatter",
+    description: "Format, validate and minify YAML",
+    category: "development",
+    categoryLabel: "Development",
+    icon: BookText,
+    badge: "new",
+    keywords: ["yaml", "format", "beautify", "minify", "validate", "parse"],
   },
   {
     slug: "merge-pdf",
